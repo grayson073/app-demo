@@ -10,6 +10,11 @@
 
     <h1>run some code</h1>
 
+    <div>
+        Square: <input name="power" checked type="radio" value="2">
+        Cube: <input name="power" type="radio" value="3">
+    </div>
+
     <input id="input-number" type="number">
     <button onclick="getSquare()">Get square!</button>
 
@@ -17,11 +22,16 @@
 
         function getSquare() {
             var input = document.getElementById('input-number');
+            var power = document.querySelector('input[name=power]:checked');
+
+            // console.log(power.value);
             // console.log(input.value);
             // var x = +prompt('a number?');
+
+            var exponent = power.value;
             var x = input.value;
-            var square = x * x;
-            console.log('square of', x, 'is', square);
+            var answer = Math.pow(x, exponent);
+            console.log(x, 'to the power of', exponent, 'is', answer);
 
         }
 
