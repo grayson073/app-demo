@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Running some code!</title>
+
+    <style>
+        #result {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #aaa;
+            width: 200px;
+            text-align: center;
+        }
+
+        .done {
+            color: white;
+            background: steelblue;
+        }
+
+    </style>
+
 </head>
 <body>
 
-    <h1>run some code</h1>
+    <h1>Run some code!</h1>
 
     <div>
         Square: <input name="power" checked type="radio" value="2">
@@ -17,6 +34,8 @@
 
     <input id="input-number" type="number" value="0">
     <button onclick="getSquare()">Get square!</button>
+
+    <div id="result"></div>
 
     <script>
 
@@ -28,11 +47,28 @@
             // console.log(input.value);
             // var x = +prompt('a number?');
 
-            var exponent = power.value;
+            // get the value out of the number input;
             var x = input.value;
-            var answer = Math.pow(x, exponent);
-            console.log(x, 'to the power of', exponent, 'is', answer);
 
+            // get the value out of the radio button
+            var exponent = power.value;
+
+            // calculate teh answer:
+            var answer = Math.pow(x, exponent);
+
+            // get the result div
+            var result = document.getElementById('result');
+
+            // write the response to the div
+            result.innerHTML = x + ' to the power of ' + exponent + ' is ' + answer;
+
+            // add some style!
+            // result.style.color = 'white';
+            // result.style.background = 'steelblue';
+            result.classList.add('done');
+
+            // log the answer to the console:
+            console.log(x, 'to the power of', exponent, 'is', answer);
         }
 
         // getSquare();
